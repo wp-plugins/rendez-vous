@@ -4,7 +4,7 @@ Donate link: http://imathi.eu/donations/
 Tags: buddypress, rendezvous, schedule, meet
 Requires at least: 3.8.1
 Tested up to: 3.9
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -39,10 +39,21 @@ Not for now, maybe soon :)
 
 == Upgrade Notice ==
 
+= 1.0.1 =
+nothing particular
+
 = 1.0.0 =
 nothing particular
 
 == Changelog ==
+
+= 1.0.1 =
+
+* Use WordPress start of the week setting to customize calendar's first day (props @schwarzaufweiss)
+* Add 2 filters so that themes can override the modal and global css (props @schwarzaufweiss)
+* Allow non logged in user to access public rendez-vous (props @pollyplummer)
+* Use Display Names in user's rendez-vous preferences
+* remove "n" query args before redirecting once the user set his preferences
 
 = 1.0.0 =
 initial version
