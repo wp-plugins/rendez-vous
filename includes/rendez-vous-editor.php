@@ -168,7 +168,7 @@ function rendez_vous_enqueue_editor( $args = array() ) {
 			),
 			array(
 				'id'          => 'duration',
-				'type'        => 'time',
+				'type'        => 'duree',
 				'placeholder' => '00:00',
 				'label'       => esc_html__( 'Duration', 'rendez-vous' ),
 				'value'       => '',
@@ -230,7 +230,8 @@ function rendez_vous_enqueue_editor( $args = array() ) {
 			esc_html__( 'December', 'rendez-vous' ),
 		),
 		'format'      => _x( 'mm/dd/yy', 'rendez-vous date format', 'rendez-vous' ),
-		'alert'       => esc_html__( 'You allready selected this date', 'rendez-vous' )
+		'firstday'    => intval( bp_get_option( 'start_of_week', 0 ) ),
+		'alert'       => esc_html__( 'You already selected this date', 'rendez-vous' )
 	);
 
 	$settings = apply_filters( 'media_view_settings', $settings, $post );
@@ -310,6 +311,11 @@ function rendezvous_media_templates() {
 			<p>
 				<label for="{{data.id}}">{{data.label}}</label>
 				<input type="time" id="{{data.id}}" placeholder="{{data.placeholder}}" value="{{data.value}}" class="rdv-input-what {{data.class}}"/>
+			</p>
+		<# } else if ( 'duree' === data.type ) { #>
+			<p>
+				<label for="{{data.id}}">{{data.label}}</label>
+				<input type="text" id="{{data.id}}" placeholder="{{data.placeholder}}" value="{{data.value}}" class="rdv-input-what duree {{data.class}}"/>
 			</p>
 		<# } else if ( 'checkbox' === data.type ) { #>
 			<p>

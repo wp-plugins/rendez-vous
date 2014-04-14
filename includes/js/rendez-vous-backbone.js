@@ -10,15 +10,11 @@ var rdv = rdv || {};
 
 	rdv.strings = _wpMediaViewsL10n.rendez_vous_strings;
 
-	console.log( wp.media.view.settings.user );
-
 	media.RdvSettings = {
 		id:          'rdv_settings',
 		fields:      _wpMediaViewsL10n.rendez_vous_fields,
 		datestrings: _wpMediaViewsL10n.rendez_vous_date_strings
 	};
-
-	console.log( media.RdvSettings );
 
 	_.extend( media, { model: {}, view: {}, controller: {}, frames: {} } );
 
@@ -250,10 +246,6 @@ var rdv = rdv || {};
 		className: 'rdv-calendar',
 		tagName: 'div',
 
-		initialize:function() {
-			console.log( 'calendar' );
-		},
-
 		render:function() {
 			_this = this; 
 			this.$el.datepicker( {
@@ -261,6 +253,7 @@ var rdv = rdv || {};
 				monthNames:media.RdvSettings.datestrings.monthnames,
 				dayNamesMin:media.RdvSettings.datestrings.daynamesmin,
 				dateFormat:media.RdvSettings.datestrings.format,
+				firstDay:media.RdvSettings.datestrings.firstday,
 				onSelect: function(dateText, inst)
                 {
                	   var date = new Date( inst.selectedYear, inst.selectedMonth, inst.selectedDay, 0, 0, 0, 0 );
@@ -994,11 +987,6 @@ var rdv = rdv || {};
 				controller : media.frame(),
 				tab:tabs
 			} );
-		},
-
-		toolbarCreate: function( toolbar, options ) {
-			console.log( toolbar );
-			console.log( options );
 		},
 
 		open: function() {
